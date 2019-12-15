@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{blog.title}}</title>
+</head>
+<body>
+<a href="/">回到首页</a>
+<div><h1>个人博客网站</h1></div>
+<h2>{{ blog.title }}</h2>
+<h3>分类：<a href="{% url 'blogs_with_the_same_type' blog.blog_type.pk %}"> {{ blog.blog_type }}</a></h3>
+<hr>
+<p>{{ blog.content }}</p>
+<hr>
+<table>
+    <tr><td>作者</td><td>{{ blog.author }}</td></tr>
+    <tr><td>上次修改时间</td><td>{{ blog.last_updated_time }}</td></tr>
+    <tr><td>创建时间</td><td>{{ blog.creat_time|date:"Y-m-d H:i:s" }}</td></tr>
+{#    在这里可以用过滤器规范时间#}
+</table>
+
+</body>
+</html>

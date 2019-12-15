@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分类:{{blog_type.type_name}}</title>
+</head>
+<body>
+<a href="/">回到首页</a>
+<h2>一共有{{ blogs|length }}篇关于{{ blog_type.type_name }}的博客</h2>
+{% for blog in blogs %}
+    <h2>
+        {{ blog.pk }}、<a href="{% url 'article_detail' blog.pk %}">{{ blog.title }}</a>
+    </h2>
+{% endfor %}
+</body>
+</html>
