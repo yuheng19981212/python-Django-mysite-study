@@ -1,4 +1,4 @@
-"""mysite URL Configuration
+"""yhsite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -19,9 +19,10 @@ from django.urls import path
 
 from myblog import urls
 from myblog.views import blog_list
+from .views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include(urls)),
-    path('', blog_list, name='home'),
+    path('', home, name='home'),
 ]

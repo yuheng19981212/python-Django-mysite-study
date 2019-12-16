@@ -1,0 +1,15 @@
+{% extends "blog/../baseHtml.html" %}
+{% block sitetitle %}文章列表{% endblock %}
+{% block title %}文章列表{% endblock %}
+{% block content %}
+    <a href="{% url 'blogs_type_list' %}">查看全部文章分类</a>
+    <h3>一共有{{ blogs|length }}篇博客</h3>
+{# 这是通过过滤器的方法去查询文章的数量 #}
+{#<h2>一共有{{ blogs_count }}篇博客</h2>#}
+{# 这是通过传参查询文章的数量 #}
+{% for blog in blogs %}
+    <h3>{{ blog.pk }}、<a href="{% url 'article_detail' blog.pk %}">{{ blog.title }}</a> </h3>
+    <p>{{ blog.content|truncatechars:30 }}</p>{#    通过过滤器显示摘要#}
+    {% empty %} <p>暂无博客，敬请期待</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "blog/../baseHtml.html" %}
+{% block sitetitle %}分类列表{% endblock %}
+{% block title %}分类列表{% endblock %}
+{% block content %}
+{% for type in blogs_type_list %}
+    <h3>
+        <a href="{% url 'blogs_with_the_same_type' type.pk  %}"> {{ type.pk }}、{{ type.type_name }}</a>
+    </h3>
+{% endfor %}
+{% endblock %}
