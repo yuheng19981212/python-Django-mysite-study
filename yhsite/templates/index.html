@@ -1,14 +1,9 @@
 {% extends "baseHtml.html" %}
+{% load static %}
 {% block sitetitle %}我的网站{% endblock %}
+{% block AddCssFile %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock %}
 {% block content %}
-    <h3 class="home-content">欢迎访问我的网站，随便看</h3>
-    <style type="text/css">
-        h3.home-content{
-            font-size: 220%;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-        }
-    </style>
+    <h3 class="home-content">欢迎访问我的网站，随便看看</h3>
 {% endblock %}
